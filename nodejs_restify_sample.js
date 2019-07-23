@@ -85,25 +85,19 @@ function versionApi( request, response, next ) {
 function infoApi( request, response, next ) {
   console.log( "infoApi: request.params: ", JSON.stringify(request.params) );
   let data = {
-    server: {
-      name: server.name,
-      url: server.url
-    },
-    os: {
-      arch: Os.arch(),
-      numcpus: Os.cpus().length,
-      endianness: Os.endianness(),
-      freemem: Os.freemem(),
-      homedir: Os.homedir(),
-      hostname: Os.hostname(),
-      platform: Os.platform(),
-      release: Os.release(),
-      tmpdir: Os.tmpdir(),
-      totalmem: Os.totalmem(),
-      addresses: Object.values(Os.networkInterfaces()).map( i => i[0].address ),
-      type: Os.type(),
-      uptime: Os.uptime(),
-    }
+    arch: Os.arch(),
+    numcpus: Os.cpus().length,
+    endianness: Os.endianness(),
+    freemem: Os.freemem(),
+    homedir: Os.homedir(),
+    hostname: Os.hostname(),
+    platform: Os.platform(),
+    release: Os.release(),
+    tmpdir: Os.tmpdir(),
+    totalmem: Os.totalmem(),
+    addresses: Object.values(Os.networkInterfaces()).map( i => i[0].address ),
+    type: Os.type(),
+    uptime: Os.uptime(),
   };
   sendResponse( request, response, next, data );
 }
